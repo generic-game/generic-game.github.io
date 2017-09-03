@@ -1,0 +1,24 @@
+<div class="home">
+  <section class="intro">
+    <header class="header">
+      <div class="logo">
+        <meta itemprop="image" content="{{ site.url }}/images/logo.svg">
+        <img class="mobile" src="/images/logo-mobile.svg" alt=""/>
+        <img class="desktop" src="/images/logo.svg" alt=""/>
+      </div>
+      <div class="description">
+        <p itemprop="about">
+          {{ site.description }}
+        </p>
+        <nav class="menu">
+          <ul>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="#">Github</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  </section>
+  {% include home-features.html %}
+</div>

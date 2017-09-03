@@ -1,0 +1,61 @@
+.home
+  .intro
+    margin: 0 auto 132px 0
+    width: 1024px
+    height: 893px
+    clear: both
+    max-width: 100%
+    background-image: url('/images/home-mobile.png')
+    background-size: contain
+    background-repeat: no-repeat
+    background-position: center
+    @media #{$medium-up}
+      background-image: url('/images/home.png')
+  .header
+    @media #{$medium-up}
+      margin: 128px 32px 0 55px
+    > .logo
+      display: block
+      width: 64px
+      margin: 32px auto 0 auto
+      @media #{$medium-up}
+        width: auto
+        float: left
+        margin: 0 0 32px 0
+      > .desktop
+        display: none
+        @media #{$medium-up}
+          display: block
+      > .mobile
+        display: block
+        @media #{$medium-up}
+          display: none
+    > .description
+      display: block
+      width: 260px
+      margin: 32px auto
+      @media #{$medium-up}
+        margin: 64px 0 0 57px
+        float: left
+        width: 300px
+      p
+        font-size: 19px
+        line-height: 24px
+        color: $color-black
+        font-weight: 300
+        text-align: center
+        @media #{$medium-up}
+          text-align: left
+      > .menu
+        float: left
+        font-size: 13px
+        margin: 32px auto
+        width: 100%
+        text-align: center
+        @media #{$medium-up}
+          width: auto
+          margin-top: 12px
+          text-align: left
+        li
+          display: inline
+          margin: 0 16px 0 0
