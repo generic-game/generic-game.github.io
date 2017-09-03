@@ -1,25 +1,27 @@
-<main class="container" itemtype="http://schema.org/SoftwareSourceCode">
+<main itemtype="http://schema.org/SoftwareSourceCode">
   <meta itemprop="codeRepository" content="Game engine">
   <meta itemprop="programmingLanguage" content="Javascript">
   <meta itemprop="runtimePlatform" content="Node.js">
   <meta itemprop="accessMode" content="textOnVisual">
   <meta itemprop="keywords" content="generic, game, rpg, nodejs">
 
-  {% if page.url == "/" %}
-    {% include home.html %}
-  {% else %}
-    <header class="section">
-      <div class="container">
-        {% include header.html %}
-      </div>
-    </header>
+  <div class="container">
+    {% if page.url == "/" %}
+      {% include home.html %}
+    {% else %}
+      <header class="section">
+        <div class="container">
+          {% include header.html %}
+        </div>
+      </header>
 
-    <section class="section">
-      <div class="container">
-        {{ content }}
-      </div>
-    </section>
-  {% endif %}
+      <section class="section">
+        <div class="container">
+          {{ content }}
+        </div>
+      </section>
+    {% endif %}
+  </div>
   <footer class="footer">
     <div class="container">
       {% include footer.html %}
