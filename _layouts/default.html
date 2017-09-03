@@ -8,9 +8,10 @@
   <meta name="viewport" content="width=device-width">
   <meta name="description" content="{{ site.subtitle }}">
 
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="{{ site.github.url }}/css/main.css">
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700" rel="stylesheet">
+  {% include css.html link='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.min.css' %}
+  {% assign cssLink = site.github.url | append: '/css/main.css' %}
+  {% include css.html link=cssLink %}
+  {% include css.html link='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700' %}
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
 </head>
 <body>
