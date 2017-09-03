@@ -19,6 +19,7 @@ description: >
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  generic-game
+google_analytics_id: UA-105799808-1
 
 # Build settings
 markdown: kramdown
