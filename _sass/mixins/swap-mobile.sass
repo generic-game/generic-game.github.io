@@ -1,0 +1,9 @@
+=swap-mobile($desktop, $mobile)
+  .#{$desktop}
+    display: none
+    @media #{$medium-up}
+      display: block
+  .#{$mobile}
+    display: block
+    @media #{$medium-up}
+      display: none

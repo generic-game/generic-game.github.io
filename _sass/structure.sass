@@ -1,6 +1,7 @@
 body
   font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif
-
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
 ul
   margin: 0
   padding: 0
@@ -8,3 +9,13 @@ ul
 a
   font-weight: bold
   color: $color-black
+
+.section
+  > .title
+    text-align: center
+    font-size: 32px
+    color: $color-black
+    font-weight: 200
+    margin-bottom: 22px
+    @media #{$medium-up}
+      margin-bottom: 100px

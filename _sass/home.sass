@@ -1,6 +1,8 @@
+@import "mixins/swap-mobile"
+
 .home
   .intro
-    margin: 0 auto 132px 0
+    margin: 0 auto 132px auto
     width: 1024px
     height: 893px
     clear: both
@@ -22,14 +24,7 @@
         width: auto
         float: left
         margin: 0 0 32px 0
-      > .desktop
-        display: none
-        @media #{$medium-up}
-          display: block
-      > .mobile
-        display: block
-        @media #{$medium-up}
-          display: none
+      +swap-mobile(desktop, mobile)
     > .description
       display: block
       width: 260px
@@ -59,3 +54,79 @@
         li
           display: inline
           margin: 0 16px 0 0
+
+.home-features
+  overflow: hidden
+  .columns
+    margin: 0
+    @media #{$medium-up}
+      margin: -.75rem
+  .section
+    padding: 0
+    @media #{$medium-up}
+      padding: 3rem 1.5rem
+  .navigation
+    display: none
+    @media #{$medium-up}
+      display: block
+    a
+      font-weight: 400
+    .active a
+      font-weight: 600
+  .features
+    padding: 0
+    @media #{$medium-up}
+      padding: .75rem
+  .feature
+    margin-bottom: 75px
+    overflow: hidden
+    > .image
+      +swap-mobile(desktop, mobile)
+      float: left
+      margin-right: 42px
+      width: 100%
+      height: 230px
+      overflow: hidden
+      margin-bottom: 32px
+      @media #{$medium-up}
+        margin-bottom: 0
+        width: auto
+        height: auto
+      img
+        width: 100%
+        @media #{$medium-up}
+          width: 300px
+    > .description
+      padding: 0 0 0 16px
+      @media #{$medium-up}
+        padding: 0
+      > .title
+        font-size: 19px
+        font-weight: 600
+        line-height: 24px
+        width: 100%
+        float: left
+        margin-bottom: 42pxr
+        @media #{$medium-up}
+          width: auto
+          float: none
+          margin-bottom: 38px
+      table, table tr, table td
+        display: block
+        @media #{$medium-up}
+          line-height: 32px
+      table
+        @media #{$medium-up}
+          display: table
+        tr
+          @media #{$medium-up}
+            display: table-row
+        td
+          @media #{$medium-up}
+            display: table-cell
+    .category
+      width: 170px
+      + td
+        margin-top: -6px
+        @media #{$medium-up}
+          margin-top: 0

@@ -1,0 +1,50 @@
+<div class="home-features">
+  <section class="section">
+    <h1 class="title">Features</h1>
+
+    <div class="columns">
+      <div class="column is-2 navigation">
+        <ul class="sticky" data-margin-top="96">
+          {% for feature in page.features %}
+          <li data-waypoint="{{ feature.image }}">
+            <a href="#{{ feature.image }}" data-scroll>
+            {{ feature.title }}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="column is-10 features">
+        {% for feature in page.features %}
+        <article id="{{ feature.image }}" class="feature" data-waypoint="{{ feature.image }}">
+          <figure class="image" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+            <img class="desktop" itemprop="image" alt="Character creation" src="/images/{{ feature.image }}.png"/>
+            <img class="mobile" alt="Character creation" src="/images/{{ feature.image }}-mobile.png"/>
+            <meta itemprop="url" content="{{ site.github.url }}/images/{{ feature.image }}.png">
+            <meta itemprop="width" content="800">
+            <meta itemprop="height" content="800">
+          </figure>
+          <div class="description">
+            <h2 class="title">{{ feature.title }}</h2>
+            <table>
+              <tbody>
+                {% for characteristic in feature.characteristics %}
+                <tr>
+                  <th class="category">{{ characteristic.topic }}</th>
+                  <td>{{ characteristic.value }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</div>
+
+<script src="{{ site.github.url }}/js/sticky.min.js" charset="utf-8"></script>
+<script src="{{ site.github.url }}/js/noframework.waypoints.min.js" charset="utf-8"></script>
+<script src="{{ site.github.url }}/js/smooth-scroll.min.js" charset="utf-8"></script>
+<script src="{{ site.github.url }}/js/home.js" charset="utf-8"></script>
