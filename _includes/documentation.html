@@ -1,0 +1,24 @@
+<section class="documentation columns">
+  <div class="column is-3 side-navigation">
+    <div class="search form">
+      <input id="q" class="search--input input" type="text" name="q" value=""/>
+      <label class="label" for="q">
+        <svg class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" width="640" height="640" viewBox="0 0 640 640"><path d="M561.44 494.944l-120.928-120.928c18.24-29.92 28.736-65.12 28.736-102.72 0-109.344-94.752-204.064-204.096-204.064-109.344-0.032-197.952 88.608-197.952 197.952 0 109.312 94.752 204.064 204.064 204.064 36.384 0 70.4-9.888 99.68-27.008l121.568 121.632c11.904 11.872 31.2 11.872 43.072 0l30.176-30.176c11.872-11.872 7.552-26.88-4.32-38.752zM128.128 265.184c0-75.712 61.344-137.056 137.024-137.056 75.712 0 143.168 67.424 143.168 143.168 0 75.68-61.376 137.056-137.056 137.056-75.712-0.032-143.136-67.488-143.136-143.168z"></path></svg>
+      </label>
+    </div>
+    {% include navigation.html %}
+  </div>
+  <div class="column is-9 content search--result">
+    {{ content }}
+
+    <hr class="divider">
+    <div class="footer">
+      Caught a mistake or want to contribute to the documentation?
+      <a href="{{ page.url | prepend: site.github.url }}">Edit this page on Github!</a>
+    </div>
+    <hr class="divider">
+    {% include disqus.html %}
+  </div>
+</section>
+
+<script src="/js/documentation.js" charset="utf-8"></script>

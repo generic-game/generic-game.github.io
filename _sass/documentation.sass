@@ -1,0 +1,99 @@
+@import "modules/syntax"
+@import "modules/mobile-navigation"
+
+.documentation
+  > .side-navigation
+    margin-top: .75rem
+    border-right: 1px solid rgba($color-black, 0.1)
+  > .content
+    min-height: calc(100vh - 390px)
+    margin-top: 0
+    @media #{$medium-up}
+      margin-top: 133px
+    padding: 0 0 0 32px
+    > .divider
+      margin: 1.5rem .75rem 1.5rem -2rem
+  .navigation
+    display: none
+    padding: 40px 20px 60px 60px
+    li
+      line-height: 32px
+    .active a
+      &::after
+        right: -32px
+    @media #{$medium-up}
+      display: block
+  .post
+    width: calc(100% - 0.75rem)
+    > .post-header
+      h1
+        margin: 0 0 1em
+        font-weight: 600
+        font-size: 2em
+    > .post-content
+      h2
+        margin: 45px 0 0.8em
+        padding-bottom: 0.7em
+        border-bottom: 1px solid #ddd
+        z-index: -1
+        font-weight: 600
+        font-size: 1.5em
+  .footer
+    color: $color-black
+    margin: 1em 0 3em 0
+    padding: 0
+    font-size: 0.9em
+    background-color: transparent
+.navigation
+  .header h3
+    font-size: 19px
+    font-weight: bold
+    border-bottom: 1px solid rgba($color-black, 0.1)
+    padding: 0 0 16px 0
+    margin: 0 0 16px 0
+  ul
+    display: flex
+    flex-direction: column
+    .header
+      order: 1
+    [data-order]
+      order: 16
+    [data-order="1"]
+      order: 2
+    @for $i from 1 through 15
+      [data-order="#{$i}"]
+        order: 2 + $i
+    li
+      padding: 4px 0
+    a
+      font-weight: normal
+  .active a
+    position: relative
+    display: block
+    font-weight: bold
+    width: 100%
+    &::after
+      content: ""
+      position: absolute
+      left: -8px
+      top: 0
+      display: block
+      background-color: $color-black
+      height: 100%
+      width: 3px
+
+.post
+  a, a:link, a:active, a:hover
+    color: blue
+  .highlighter-rouge
+    margin-bottom: 1em
+  .post-content
+    ul
+      list-style: square
+    h3
+      font-size: 1em
+      margin-bottom: 0.5em
+      font-weight: bold
+    blockquote
+      background-color: transparent
+      border-left: 3px solid #dbdbdb

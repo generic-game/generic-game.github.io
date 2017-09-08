@@ -9,22 +9,17 @@
     {% if page.url == "/" %}
       {% include home.html %}
     {% else %}
-      <header class="section">
+      {% include header.html %}
+      <section class="structure-section">
         <div class="container">
-          {% include header.html %}
-        </div>
-      </header>
-
-      <section class="section">
-        <div class="container">
-          {{ content }}
+          {% if page.categories contains 'docs' %}
+            {% include documentation.html %}
+          {% else %}
+            {{ content }}
+          {% endif %}
         </div>
       </section>
     {% endif %}
   </div>
-  <footer class="footer">
-    <div class="container">
-      {% include footer.html %}
-    </div>
-  </footer>
+  {% include footer.html %}
 </main>

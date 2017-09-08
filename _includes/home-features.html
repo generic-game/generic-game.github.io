@@ -25,7 +25,9 @@
             <meta itemprop="height" content="800">
           </figure>
           <div class="description">
-            <h2 class="title">{{ feature.title }}</h2>
+            <h2 class="title">
+              <a href="{{ site.baseurl }}/docs/{{ feature.link }}.html">{{ feature.title }}</a>
+            </h2>
             <table>
               <tbody>
                 {% for characteristic in feature.characteristics %}

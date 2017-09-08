@@ -1,0 +1,1 @@
+../_posts/2017-09-07-getting-started.md

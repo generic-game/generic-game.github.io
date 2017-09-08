@@ -1,14 +1,29 @@
-<ul class="nav nav-list">
-  <li><a href="{{ site.baseurl }}/">Home</a></li>
-  {% for section in site.sections %}
-    {% assign attr = section[0] %}
-    {% assign label = section[1] %}
-    {% for page in site.categories[attr] %}
-      {% if forloop.first %}
-        <li class="nav-header">{{ label }}</li>
-      {% endif %}
-      <li data-order="{{ page.order }}"><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
+<div class="navigation">
+  <ul>
+    {% for section in site.sections %}
+      {% assign attr = section[0] %}
+      {% assign label = section[1] %}
+      {% for categoryPage in site.categories[attr] reversed %}
+        {% if forloop.first %}
+          <li class="header">
+            <h3>{{ label }}</h3>
+          </li>
+        {% endif %}
+        {% if categoryPage.title == page.title %}
+          {% assign class = 'active' %}
+        {% else %}
+          {% assign class = '' %}
+        {% endif %}
+        <li class="{{class}}" data-order="{{ categoryPage.order }}">
+          <a href="{{ site.baseurl }}{{ categoryPage.url }}">
+            {% if categoryPage.title == 'Index' %}
+              Introduction
+            {% else %}
+              {{ categoryPage.title }}
+            {% endif %}
+          </a>
+        </li>
+      {% endfor %}
     {% endfor %}
-  {% endfor %}
-  <li class="divider"></li>
-</ul>
+  </ul>
+</div>

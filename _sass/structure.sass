@@ -1,5 +1,7 @@
 @import "mixins/swap-mobile"
 
+@import "modules/forms"
+
 body
   font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif
   -webkit-font-smoothing: antialiased
@@ -12,7 +14,30 @@ a
   font-weight: bold
   color: $color-black
 
-.section
+.structure-header
+  margin: 0
+  border-bottom: 1px solid rgba($color-black, 0.1)
+  overflow: hidden
+  height: 96px
+  @media #{$medium-up}
+    margin: 32px 0 0 0
+    height: auto
+  > .logo
+    display: block
+    width: 64px
+    margin: 16px 0 0 16px
+    @media #{$medium-up}
+      float: left
+      margin: 0 0 32px 0
+  > .links
+    float: right
+    padding: 27px 16px 0 0
+    svg
+      width: 20px
+      height: 20px
+.structure-section
+  > .container
+    min-height: calc(100vh - 447px)
   > .title
     text-align: center
     font-size: 32px
@@ -22,7 +47,7 @@ a
     @media #{$medium-up}
       margin-bottom: 100px
 
-.footer
+.structure-footer
   padding: 50px 0 30px 40px
   background-color: $color-black
   color: $color-white

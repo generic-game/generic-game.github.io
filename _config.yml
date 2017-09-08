@@ -21,6 +21,16 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  generic-game
 google_analytics_id: UA-105799808-1
 
+# Default categories (in order) to appear in the navigation
+sections: [
+    ['docs', 'Documentation'],
+    ['dev', 'Developers'],
+]
+
+exclude: ['bin']
+permalink: none
+highlighter: rouge
+
 # Build settings
 markdown: kramdown
 theme: minima
