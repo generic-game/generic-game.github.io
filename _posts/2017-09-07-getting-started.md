@@ -2,6 +2,7 @@
 layout: page
 title: "Getting started"
 category: docs
+description: "Setup and start to use Generic Game"
 date: 2017-09-07 20:08:02
 ---
 

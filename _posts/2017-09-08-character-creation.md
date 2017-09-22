@@ -2,6 +2,7 @@
 layout: page
 title: "Character creation"
 category: docs
+description: "Creating a hero with identity, inventory, equipament, characteristics, battle, bank, experience and quests"
 date: 2017-09-08 09:23:00
 ---
 

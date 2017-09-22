@@ -12,7 +12,7 @@ layout: null
         "content": {{post.content | markdownify | strip_html | jsonify}},
         "link": "{{ site.baseurl }}{{ post.url }}",
         "date": "{{ post.date }}",
-        "excerpt": "{{ post.snippet }}",
+        "excerpt": "{{ post.description }}",
         "search_omit": "{{ post.search_omit }}"
     }
     {% assign first = false %}

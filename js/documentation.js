@@ -17,7 +17,10 @@ var getJson = function (url, callback) {
 }
 var plotResults = function (json) {
   searchResults.container.innerHTML = '<ul>' + json.map(function (line) {
-    return '<li>' + line.title + '</li>'
+    return '<li>' +
+           '<a href="' + line.link + '">' + line.title + '</a>' +
+           '<p>' + line.excerpt + '</p>' +
+           '</li>'
   }).join('') + '</ul>'
 }
 var mobileNavigation = function () {
