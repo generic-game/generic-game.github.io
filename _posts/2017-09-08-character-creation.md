@@ -193,22 +193,22 @@ In battle, some events are fired. To listen them, use:
 
 ```js
 villian.events.on('battle:[before]attack', ({ attack }) => {
-  // <- attack {damage, delay, effects}
+  // <- Attack instance
 })
 villian.events.on('battle:[after]attack', ({ attack }) => {
-  // <- attack {damage, delay, effects}
+  // <- Attack instance
 })
 villian.events.on('battle:[before]defend', ({ attack }) => {
-  // <- attack {damage, delay, effects}
+  // <- Attack instance
 })
 villian.events.on('battle:[after]defend', ({ attack }) => {
-  // <- attack {damage, delay, effects}
+  // <- Attack instance
 })
 villian.events.on('battle:[before]takingDamage', ({ status }) => {
-  // <- status {damage}
+  // <- status object {damage}
 })
 villian.events.on('battle:[after]takingDamage', ({ status }) => {
-  // <- status {damage}
+  // <- status object {damage}
 })
 ```
 
@@ -274,7 +274,7 @@ hero.bank.earn(new gg.class.Currency({
   symbol: 'G',
   value: 1000
 })).then(() => {
-  hero.bank.get({name: 'Gold'}).value
+  hero.bank.get('Gold').getValue()
   // <- 1000
 })
 ```
@@ -286,7 +286,7 @@ hero.bank.lose(new gg.class.Currency({
   symbol: 'G',
   value: 100
 })).then(() => {
-  hero.bank.get({name: 'Gold'}).value
+  hero.bank.get('Gold').getValue()
   // <- 900
 })
 ```
