@@ -133,7 +133,7 @@ const hero = new gg.class.Character({
   },
   equipament: {
     slots: [
-      new gg.class.Slot({type: 'lenses', capacity: 1})
+      {type: 'lenses', capacity: 1}
     ]
   }
 })
@@ -142,7 +142,7 @@ const fireLenses = new gg.class.Vest({
   slotType: {name: 'lenses'},
   type: gg.const.item.EQUIPABLE,
   effects: [
-    new gg.class.Characteristic({name: gg.const.characteristic.DEFENSE, value: 12})
+    {name: gg.const.characteristic.DEFENSE, value: 12}
   ]
 })
 
@@ -229,16 +229,16 @@ So the bank can be initialized using:
 ```js
 new gg.class.Bank({
   currencies: [
-    new gg.class.Currency({
+    {
       name: 'Gold',
       symbol: 'G',
       value: 1000
-    }),
-    new gg.class.Currency({
+    },
+    {
       name: 'Cash',
       symbol: 'CASH',
       value: 10
-    })
+    }
   ]
 })
 ```
@@ -253,11 +253,11 @@ const hero = new gg.class.Character({
   },
   bank: {
     currencies: [
-      new gg.class.Currency({
+      {
         name: 'Gold',
         symbol: 'G',
         value: 1000
-      })
+      }
     ]
   }
 })
@@ -269,11 +269,11 @@ const hero = new gg.class.Character({
 To add/remove currencies, use `earn` and `lose` methods:
 
 ```js
-hero.bank.earn(new gg.class.Currency({
+hero.bank.earn({
   name: 'Gold',
   symbol: 'G',
   value: 1000
-})).then(() => {
+}).then(() => {
   hero.bank.get('Gold').getValue()
   // <- 1000
 })
@@ -291,6 +291,9 @@ hero.bank.lose(new gg.class.Currency({
 })
 ```
 
+> `earn` and `lose` accepts either arguments, a Currency instance or a object
+with the correct arguments to create a Currency instance.
+
 ## Experience
 
 The experience is a class which stores the amount of experience calculates
@@ -302,7 +305,7 @@ The custom leveling algorithm receives the experience amount and should return
 the character level. It can be setted using:
 
 ```js
-hero.experience.setAlgorithm(experience) => {
+hero.experience.setAlgorithm(experience => {
   return Math.floor(experience / 100)
 })
 ```
@@ -338,7 +341,7 @@ You can create custom characteristics in character instanciation
 ```js
 new gg.class.Character({
   characteristics: [
-    new gg.class.Characteristic({name: 'wisdom', value: 1})
+    {name: 'wisdom', value: 1}
   ]
 })
 ```

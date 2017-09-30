@@ -54,7 +54,7 @@ const sword = new gg.class.Weapon({
   type: gg.const.item.EQUIPABLE,
   slotType: {name: 'handheld'},
   attacks: [
-    new gg.class.Attack({damage: 10, delay: 100})
+    {damage: 10, delay: 100}
   ]
 })
 
@@ -74,7 +74,7 @@ mob.equipament.equip(new gg.class.Weapon({
   type: gg.const.item.EQUIPABLE,
   slotType: {name: 'handheld'},
   attacks: [
-    new gg.class.Attack({damage: 1, delay: 100})
+    {damage: 1, delay: 100}
   ]
 }))
 ```
