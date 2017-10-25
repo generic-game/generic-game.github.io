@@ -15,7 +15,7 @@
 # in the templates via {{ site.myvariable }}.
 title: Generic Game
 description: >
-  A Node.js role playing generic game handcrafted for developers.
+  A Javascript role playing generic game handcrafted for developers.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  generic-game
