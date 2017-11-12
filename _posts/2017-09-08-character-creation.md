@@ -31,6 +31,7 @@ A character is composed with several classes:
   <!-- - gaining -->
   <!-- - losing -->
 - [Quests](#quests)
+- [Status](#status)
 
 
 ## Identity
@@ -79,7 +80,7 @@ const hero = new gg.class.Character({
 
 ### Carrying items
 
-To carry some item, use:
+To carry some item, use `inventory.carry`:
 
 ```js
 const ring = new gg.class.Item({
@@ -90,6 +91,7 @@ const ring = new gg.class.Item({
   }
 })
 hero.inventory.carry(ring)
+// <- Promise
 ```
 
 > To check if hero can carry item:
@@ -161,6 +163,37 @@ hero.equipment.equip(fireLenses).catch((error) => {
   // <- Exceeded slot capacity
 })
 ```
+
+## Characteristics
+
+A character characteristics are fixed to character should be understood as
+something permanent. Equipments affect the character attributes, so as
+characteristics, but cannot be traded
+
+The life and defense are defaults character characteristics, can be increased
+and decreased by using:
+
+```js
+hero.characteristics.increase('defense', 1)
+hero.characteristics.decrease('defense', 1)
+```
+
+You can create custom characteristics in character instanciation
+
+```js
+new gg.class.Character({
+  characteristics: [
+    {name: 'wisdom', value: 1}
+  ]
+})
+```
+
+To get the computed status (characteristics + items buffs), use:
+
+```js
+hero.status.get('wisdom')
+```
+
 
 ## Battle
 ### Single attack
@@ -322,32 +355,48 @@ experience.lose(1000)
 // <- Promise
 ```
 
-## Characteristics
 
-A character characteristics are fixed to character should be understood as
-something permanent. Equipments affect the character attributes, so as
-characteristics, but cannot be traded
+## Quests
 
-The life and defense are defaults character characteristics, can be increased
-and decreased by using:
+In this class is stored all the `Character` joined quests.
 
-```js
-hero.characteristics.increase('defense', 1)
-hero.characteristics.decrease('defense', 1)
-```
+See [Quests section]({{ site.baseurl }}{% post_url 2017-09-07-getting-started %}) to know more about creating a quest.
 
-You can create custom characteristics in character instanciation
+Here's an example of a `Character` instance joining a `Quest`:
+
 
 ```js
-new gg.class.Character({
-  characteristics: [
-    {name: 'wisdom', value: 1}
-  ]
+const quest = new gg.class.Quest({
+  text: 'Become the king of this kingdom',
+  steps: [{
+    text: 'kill the king',
+    reward: new gg.class.Experience({
+      value: 1000
+    }),
+    action: () => !villain.battle.isAlive()
+  }]
 })
+hero.interact(quest).join()
 ```
 
-To get the computed status (characteristics + items buffs), use:
+> The quest must be a `Quest` instance, otherwise will throw an error.
+
+## Status
+
+This class is responsible to compute all `Character` statuses.
+
+For instance, calling `hero.status.get()` will return all `hero` character data.
 
 ```js
-hero.status.get('wisdom')
+let status = hero.status.get()
+// <- { life, defense }
 ```
+
+While requesting a specific attribute, it returns it's value
+
+```js
+let status = hero.status.get('life')
+// <- 100
+```
+
+> The Status class compute the character equipment and characteristics.
