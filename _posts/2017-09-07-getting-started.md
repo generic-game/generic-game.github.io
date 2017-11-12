@@ -58,8 +58,8 @@ const sword = new gg.class.Weapon({
   ]
 })
 
-hero.equipament.addSlot({type: 'handheld'})
-hero.equipament.equip(sword)
+hero.equipment.addSlot({type: 'handheld'})
+hero.equipment.equip(sword)
 ```
 
 creating an enemy
@@ -68,8 +68,8 @@ creating an enemy
 const mob = new gg.class.Character({
   name: 'Generic mob'
 })
-mob.equipament.addSlot({type: 'handheld'})
-mob.equipament.equip(new gg.class.Weapon({
+mob.equipment.addSlot({type: 'handheld'})
+mob.equipment.equip(new gg.class.Weapon({
   name: 'Dagger',
   type: gg.const.item.EQUIPABLE,
   slotType: {name: 'handheld'},

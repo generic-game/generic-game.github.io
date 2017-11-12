@@ -9,7 +9,7 @@ features:
     value: naming
   - topic: Inventory
     value: carrying items, storage limit
-  - topic: Equipament
+  - topic: Equipment
     value: slot types, limit per slot
   - topic: Battle
     value: single attack, conflict until death, events

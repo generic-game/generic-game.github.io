@@ -2,7 +2,7 @@
 layout: page
 title: "Character creation"
 category: docs
-description: "Creating a hero with identity, inventory, equipament, characteristics, battle, bank, experience and quests"
+description: "Creating a hero with identity, inventory, equipment, characteristics, battle, bank, experience and quests"
 date: 2017-09-08 09:23:00
 ---
 
@@ -13,7 +13,7 @@ A character is composed with several classes:
 - [Inventory](#inventory)
   <!-- - carrying items -->
   <!-- - storage limit -->
-- [Equipament](#equipament)
+- [Equipment](#equipment)
   <!-- - slot types -->
   <!-- - limit per slot -->
 - [Characteristics](#characteristics)
@@ -117,7 +117,7 @@ hero.inventory.increaseCapacity(10)
 ```
 
 
-## Equipament
+## Equipment
 
 Is possible to equip anything and compute it's effects.
 
@@ -131,7 +131,7 @@ const hero = new gg.class.Character({
   inventory: {
     capacity: 10
   },
-  equipament: {
+  equipment: {
     slots: [
       {type: 'lenses', capacity: 1}
     ]
@@ -146,7 +146,7 @@ const fireLenses = new gg.class.Vest({
   ]
 })
 
-hero.equipament.equip(fireLenses).then(() => {
+hero.equipment.equip(fireLenses).then(() => {
   hero.status.get(gg.const.characteristic.DEFENSE)
   // <- 12
 })
@@ -157,7 +157,7 @@ hero.equipament.equip(fireLenses).then(() => {
 Each slot has a capacity. Exceeding it will throw an exception in the promise
 
 ```js
-hero.equipament.equip(fireLenses).catch((error) => {
+hero.equipment.equip(fireLenses).catch((error) => {
   // <- Exceeded slot capacity
 })
 ```
@@ -325,7 +325,7 @@ experience.lose(1000)
 ## Characteristics
 
 A character characteristics are fixed to character should be understood as
-something permanent. Equipaments affect the character attributes, so as
+something permanent. Equipments affect the character attributes, so as
 characteristics, but cannot be traded
 
 The life and defense are defaults character characteristics, can be increased
