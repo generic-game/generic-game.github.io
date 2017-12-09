@@ -355,6 +355,29 @@ experience.lose(1000)
 // <- Promise
 ```
 
+### Leveling
+
+To get the computed level, use:
+
+```js
+experience.computeLevel()
+// <- Number
+```
+
+In there character instance you have two available methods to get the experience and level:
+
+To have access to character experience and level, you can use:
+
+```js
+hero.status.get('experience')
+// <- Number
+hero.status.get('level')
+// <- Number
+hero.experience.computeLevel()
+// <- Number
+hero.experience.getExperience()
+// <- Number
+```
 
 ## Quests
 
@@ -389,14 +412,14 @@ For instance, calling `hero.status.get()` will return all `hero` character data.
 
 ```js
 let status = hero.status.get()
-// <- { life, defense }
+// <- { life, defense, gold, experience, level }
 ```
 
 While requesting a specific attribute, it returns it's value
 
 ```js
-let status = hero.status.get('life')
+let life = hero.status.get('life')
 // <- 100
 ```
 
-> The Status class compute the character equipment and characteristics.
+> The Status class compute the character equipment, characteristics, bank and experience (amount and level).
